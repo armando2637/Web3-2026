@@ -1,0 +1,108 @@
+# 1. Tupla com diferentes tipos
+dados = (10, 3.14, "Armando", True)
+
+print(f"Segundo elemento da tupla: {dados[1]}")
+print(f"Quarto elemento da tupla: {dados[3]}")
+
+# Tentativa de modificação (vai gerar erro)
+# dados[0] = 20
+print(f"Erro: Tuplas são imutáveis, portanto não é possível alterar seus valores.")
+
+
+# 2. Contar quantas vezes um valor aparece na tupla
+tupla = (1, 2, 2, 3, 2)
+
+valor = int(input("Digite um valor para contar na tupla: "))
+quantidade = tupla.count(valor)
+
+print(f"O valor {valor} aparece {quantidade} vezes na tupla {tupla}")
+
+
+# 3. Operações com lista
+lista = [10, 20, 30, 40]
+
+lista.append(100)
+lista.pop(2)
+lista[0] = 500
+
+print(f"Lista final: {lista}")
+
+
+# 4. Soma e média das notas
+notas = [7.5, 8.0, 6.5, 9.0, 7.0]
+
+soma = sum(notas)
+media = soma / len(notas)
+
+print(f"Soma das notas: {soma}")
+print(f"Média das notas: {media}")
+
+
+# 5. Ordenação e filtro
+numeros = [5, 12, 8, 20, 3, 15]
+
+numeros.sort()
+print(f"Lista em ordem crescente: {numeros}")
+
+numeros.sort(reverse=True)
+print(f"Lista em ordem decrescente: {numeros}")
+
+maiores_10 = [n for n in numeros if n > 10]
+
+print(f"Números maiores que 10: {maiores_10}")
+
+
+# 6. Matriz de notas
+notas_alunos = [
+    [7, 8, 9, 6],
+    [6, 5, 8, 7],
+    [10, 9, 8, 9]
+]
+
+print(f"Nota do segundo aluno na terceira disciplina: {notas_alunos[1][2]}")
+
+medias = []
+for aluno in notas_alunos:
+    media = sum(aluno) / len(aluno)
+    medias.append(media)
+
+maior_media = max(medias)
+indice = medias.index(maior_media)
+
+print(f"A maior média é do aluno {indice + 1} com média {maior_media}")
+
+
+# 7. Leitura de quatro valores
+valores = []
+
+for i in range(4):
+    num = int(input("Digite um número: "))
+    valores.append(num)
+
+print(f"Você digitou os valores: {valores}")
+print(f"O valor 9 apareceu {valores.count(9)} vezes")
+
+if 3 in valores:
+    print(f"O primeiro valor 3 apareceu na posição {valores.index(3)}")
+else:
+    print(f"O valor 3 não foi digitado")
+
+pares = [n for n in valores if n % 2 == 0]
+
+print(f"Números pares digitados: {pares}")
+
+
+# 8. Lançamento de dado 50 vezes
+import random
+
+lancamentos = []
+
+for i in range(50):
+    lancamentos.append(random.randint(1, 6))
+
+quantidade_6 = lancamentos.count(6)
+percentual = (quantidade_6 / 50) * 100
+
+print(f"Resultados dos lançamentos: {lancamentos}")
+print(f"A face 6 apareceu {quantidade_6} vezes")
+print(f"Percentual de ocorrência da face 6: {percentual}%")
