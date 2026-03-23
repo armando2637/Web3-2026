@@ -1,109 +1,224 @@
+# 1. Ler inteiro com tratamento
+def ler_inteiro(msg):
+    try:
+        valor = int(input(msg))
+    except ValueError:
+        print(f'Erro! Digite um número inteiro válido.')
+    else:
+        return valor
+    finally:
+        print(f'Tentativa de leitura finalizada')
 
-1. Crie uma função ler_inteiro(msg) que solicite um número inteiro ao usuário.
-Requisitos:
-● Use try e except para tratar erro de conversão.
-● Use else para retornar o valor convertido.
-● Use finally para exibir a mensagem "Tentativa de leitura finalizada".
+# Exemplo:
+num = ler_inteiro('Digite um número inteiro: ')
+print(f'Valor digitado: {num}')
 
-2. Crie uma função divisao_segura(a, b) que retorne o resultado da divisão entre
-dois números.
-Requisitos:
-● Tratar erro de divisão por zero.
-● Utilizar try, except, else e finally.
-● O finally deve exibir "Operação de divisão encerrada".
 
-3. Crie uma função ler_lista() que permita ao usuário inserir números em uma lista.
-Regras:
-● O usuário digita "fim" para parar.
-● Use tratamento de exceção caso o valor digitado não seja numérico.
-● Use else para adicionar o número à lista.
+# 2. Divisão segura
+def divisao_segura(a, b):
+    try:
+        resultado = a / b
+    except ZeroDivisionError:
+        print(f'Erro! Divisão por zero.')
+    else:
+        print(f'Resultado: {resultado}')
+    finally:
+        print(f'Operação de divisão encerrada')
 
-A função deve retornar a lista final.
+divisao_segura(10, 2)
+divisao_segura(10, 0)
 
-4. Crie uma função buscar_elemento(lista, indice).
-Requisitos:
-● Tentar acessar um índice da lista.
-● Tratar exceção IndexError.
-● Caso funcione, mostrar o valor encontrado usando else.
-● Usar finally para informar "Busca finalizada".
 
-5. Crie uma função abrir_arquivo_seguro(nome).
-Requisitos:
-● Tentar abrir um arquivo para leitura.
-● Tratar FileNotFoundError.
-● Caso o arquivo exista, mostrar seu conteúdo.
-● Usar finally para informar "Processo de arquivo finalizado".
+# 3. Ler lista
+def ler_lista():
+    lista = []
+    while True:
+        entrada = input('Digite um número ou "fim": ')
+        if entrada.lower() == 'fim':
+            break
+        try:
+            num = float(entrada)
+        except ValueError:
+            print(f'Valor inválido!')
+        else:
+            lista.append(num)
+    return lista
 
-6. Crie uma função calcular_media() que leia 5 números digitados pelo usuário.
-Requisitos:
-● Usar try para converter os valores.
-● Se houver erro de digitação, solicitar novamente.
-● Usar else para adicionar o número na lista.
-● Ao final retornar a média.
+lista = ler_lista()
+print(f'Lista final: {lista}')
 
-7. Crie uma função converter_numero(valor) que tente converter um valor para
-inteiro.
-Requisitos:
-● Caso não seja possível, tratar ValueError.
 
-● Caso funcione, retornar o valor convertido.
-● Sempre mostrar "Conversão finalizada" usando finally.
+# 4. Buscar elemento
+def buscar_elemento(lista, indice):
+    try:
+        valor = lista[indice]
+    except IndexError:
+        print(f'Índice inválido!')
+    else:
+        print(f'Valor encontrado: {valor}')
+    finally:
+        print(f'Busca finalizada')
 
-8. Crie uma função menu_calculadora() com as opções:
-1 - Soma
-2 - Multiplicação
-3 - Divisão
-4 - Sair
-Requisitos:
-● Cada operação deve ser uma função separada.
-● Utilizar tratamento de exceção para entradas inválidas.
-● Usar finally para informar que o ciclo do menu foi executado.
+buscar_elemento([1, 2, 3], 1)
+buscar_elemento([1, 2, 3], 10)
 
-9. Crie uma função ler_arquivo_numeros(nome).
-Requisitos:
-● O arquivo contém vários números (um por linha).
-● Ler os números e calcular a soma.
-● Tratar exceção caso o arquivo não exista.
-● Tratar exceção caso alguma linha não seja numérica.
 
-10. Crie uma função leia_numero(tipo) que:
-● Receba "int" ou "float".
-● Leia o valor do usuário.
-● Use tratamento de exceções adequado.
-● Utilize obrigatoriamente try, except, else e finally.
+# 5. Abrir arquivo seguro
+def abrir_arquivo_seguro(nome):
+    try:
+        with open(nome, 'r') as arq:
+            conteudo = arq.read()
+    except FileNotFoundError:
+        print(f'Arquivo não encontrado!')
+    else:
+        print(f'Conteúdo do arquivo:\n{conteudo}')
+    finally:
+        print(f'Processo de arquivo finalizado')
 
-● Continue pedindo até que o valor seja válido.
+abrir_arquivo_seguro('teste.txt')
 
-11. Crie uma função que calcule o fatorial.
-12. Crie uma função que conte quantas letras existem em uma palavra.
-13. O que uma função em Python permite fazer?
-A) Repetir código várias vezes sem organização
-B) Reutilizar um bloco de código que executa uma tarefa específica
-C) Apenas armazenar dados
-D) Substituir variáveis
-14. Qual palavra-chave é usada para retornar um valor de uma função?
-A) break
-B) return
-C) pass
-D) stop
-15. O que acontece se uma função não tiver return?
-A) O programa gera erro
-B) A função retorna None
-C) A função retorna 0
-D) A função retorna False
-16.Qual exceção ocorre ao tentar dividir por zero?
-A) ValueError
-B) IndexError
-C) ZeroDivisionError
-D) TypeError
-17. Para que serve o bloco else em tratamento de exceções?
-A) Executar código quando ocorre erro
-B) Executar código quando não ocorre erro
-C) Finalizar o programa
-D) Repetir o código
 
-18. Para que serve o bloco finally?
-A) Executar código apenas quando há erro
-B) Executar código sempre, ocorrendo erro ou não
-C) Ignorar erros
-D) Finalizar funções
+# 6. Calcular média
+def calcular_media():
+    lista = []
+    while len(lista) < 5:
+        try:
+            num = float(input(f'Digite um número: '))
+        except ValueError:
+            print(f'Erro! Digite um número válido.')
+        else:
+            lista.append(num)
+    return sum(lista) / len(lista)
+
+print(f'Média: {calcular_media():.2f}')
+
+
+# 7. Converter número
+def converter_numero(valor):
+    try:
+        num = int(valor)
+    except ValueError:
+        print(f'Erro! Não é possível converter.')
+    else:
+        return num
+    finally:
+        print(f'Conversão finalizada')
+
+print(f'Resultado: {converter_numero("10")}')
+print(f'Resultado: {converter_numero("abc")}')
+
+
+# 8. Menu calculadora
+def soma(a, b):
+    return a + b
+
+def multiplicacao(a, b):
+    return a * b
+
+def divisao(a, b):
+    return a / b
+
+def menu_calculadora():
+    while True:
+        try:
+            print(f'\n1 - Soma\n2 - Multiplicação\n3 - Divisão\n4 - Sair')
+            opcao = int(input('Escolha: '))
+            
+            if opcao == 4:
+                break
+
+            a = float(input('Digite o primeiro número: '))
+            b = float(input('Digite o segundo número: '))
+
+            if opcao == 1:
+                print(f'Resultado: {soma(a, b)}')
+            elif opcao == 2:
+                print(f'Resultado: {multiplicacao(a, b)}')
+            elif opcao == 3:
+                print(f'Resultado: {divisao(a, b)}')
+            else:
+                print(f'Opção inválida!')
+        except ValueError:
+            print(f'Erro! Entrada inválida.')
+        except ZeroDivisionError:
+            print(f'Erro! Divisão por zero.')
+        finally:
+            print(f'Ciclo do menu executado')
+
+menu_calculadora()
+
+
+# 9. Ler arquivo números
+def ler_arquivo_numeros(nome):
+    soma = 0
+    try:
+        with open(nome, 'r') as arq:
+            for linha in arq:
+                try:
+                    soma += float(linha.strip())
+                except ValueError:
+                    print(f'Linha inválida ignorada')
+    except FileNotFoundError:
+        print(f'Arquivo não encontrado!')
+    else:
+        print(f'Soma dos números: {soma}')
+
+ler_arquivo_numeros('numeros.txt')
+
+
+# 10. Leia número
+def leia_numero(tipo):
+    while True:
+        try:
+            valor = input(f'Digite um valor ({tipo}): ')
+            if tipo == "int":
+                valor = int(valor)
+            elif tipo == "float":
+                valor = float(valor)
+            else:
+                print(f'Tipo inválido!')
+                continue
+        except ValueError:
+            print(f'Erro! Valor inválido.')
+        else:
+            return valor
+        finally:
+            print(f'Tentativa realizada')
+
+print(f'Número lido: {leia_numero("int")}')
+
+
+# 11. Fatorial
+def fatorial(n):
+    resultado = 1
+    for i in range(1, n+1):
+        resultado *= i
+    return resultado
+
+print(f'Fatorial: {fatorial(5)}')
+
+
+# 12. Contar letras
+def contar_letras(palavra):
+    return len(palavra)
+
+print(f'Quantidade de letras: {contar_letras("Python")}')
+
+
+# 13
+print(f'13) Resposta: B')
+
+# 14
+print(f'14) Resposta: B')
+
+# 15
+print(f'15) Resposta: B')
+
+# 16
+print(f'16) Resposta: C')
+
+# 17
+print(f'17) Resposta: B')
+
+# 18
+print(f'18) Resposta: B')
