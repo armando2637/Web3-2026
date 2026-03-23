@@ -1,1 +1,63 @@
+1. Crie uma função chamada soma_lista(lista) que receba uma lista de números e
+retorne a soma de todos os elementos.
+2. Crie uma função chamada maior_valor(lista) que receba uma lista de números e
+retorne o maior valor presente nela.
+3. Faça um programa que:
+● receba vários números digitados pelo usuário
+● armazene em uma lista
+● crie uma função media(lista) que calcule e retorne a média.
 
+4. Crie uma função numeros_pares(lista) que receba uma lista de números e retorne
+uma nova lista apenas com os números pares.
+5. Crie uma função contar_elementos(lista) que mostre:
+● quantidade total de elementos
+● maior valor
+● menor valor
+
+6. Crie um dicionário com as seguintes informações de um aluno:
+nome
+idade
+curso
+nota_final
+Depois mostre todos os dados do aluno na tela.
+
+7. Crie um programa que cadastre 3 alunos usando:
+● lista
+● dicionário
+
+Cada aluno deve ter:
+nome
+nota
+Ao final mostre todos os alunos cadastrados.
+8. Usando o exercício anterior, crie uma função que receba a lista de alunos e
+calcule a média das notas da turma.
+
+9. Crie um dicionário para armazenar produtos e preços.
+Exemplo:
+{
+"arroz": 25,
+"feijão": 10,
+"macarrão": 8
+}
+Crie uma função que:
+● receba o dicionário
+● mostre o produto mais caro.
+
+10. Crie um programa com uma função mostrar_estoque(produtos).
+O dicionário deve ter:
+produto : quantidade
+Exemplo:
+{
+"caneta": 10,
+"caderno": 5,
+"borracha": 7
+
+}
+A função deve mostrar:
+Produto: caneta - Quantidade: 10
+Produto: caderno - Quantidade: 5
+Produto: borracha - Quantidade: 7
+11. Crie uma função maior_numero(*args) que receba vários números e retorne o
+maior deles.
+12. Crie uma função mostrar_dados(**kwargs) que mostre todos os valores
+recebidos.
