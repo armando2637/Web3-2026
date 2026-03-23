@@ -1,1 +1,109 @@
 
+1. Crie uma função ler_inteiro(msg) que solicite um número inteiro ao usuário.
+Requisitos:
+● Use try e except para tratar erro de conversão.
+● Use else para retornar o valor convertido.
+● Use finally para exibir a mensagem "Tentativa de leitura finalizada".
+
+2. Crie uma função divisao_segura(a, b) que retorne o resultado da divisão entre
+dois números.
+Requisitos:
+● Tratar erro de divisão por zero.
+● Utilizar try, except, else e finally.
+● O finally deve exibir "Operação de divisão encerrada".
+
+3. Crie uma função ler_lista() que permita ao usuário inserir números em uma lista.
+Regras:
+● O usuário digita "fim" para parar.
+● Use tratamento de exceção caso o valor digitado não seja numérico.
+● Use else para adicionar o número à lista.
+
+A função deve retornar a lista final.
+
+4. Crie uma função buscar_elemento(lista, indice).
+Requisitos:
+● Tentar acessar um índice da lista.
+● Tratar exceção IndexError.
+● Caso funcione, mostrar o valor encontrado usando else.
+● Usar finally para informar "Busca finalizada".
+
+5. Crie uma função abrir_arquivo_seguro(nome).
+Requisitos:
+● Tentar abrir um arquivo para leitura.
+● Tratar FileNotFoundError.
+● Caso o arquivo exista, mostrar seu conteúdo.
+● Usar finally para informar "Processo de arquivo finalizado".
+
+6. Crie uma função calcular_media() que leia 5 números digitados pelo usuário.
+Requisitos:
+● Usar try para converter os valores.
+● Se houver erro de digitação, solicitar novamente.
+● Usar else para adicionar o número na lista.
+● Ao final retornar a média.
+
+7. Crie uma função converter_numero(valor) que tente converter um valor para
+inteiro.
+Requisitos:
+● Caso não seja possível, tratar ValueError.
+
+● Caso funcione, retornar o valor convertido.
+● Sempre mostrar "Conversão finalizada" usando finally.
+
+8. Crie uma função menu_calculadora() com as opções:
+1 - Soma
+2 - Multiplicação
+3 - Divisão
+4 - Sair
+Requisitos:
+● Cada operação deve ser uma função separada.
+● Utilizar tratamento de exceção para entradas inválidas.
+● Usar finally para informar que o ciclo do menu foi executado.
+
+9. Crie uma função ler_arquivo_numeros(nome).
+Requisitos:
+● O arquivo contém vários números (um por linha).
+● Ler os números e calcular a soma.
+● Tratar exceção caso o arquivo não exista.
+● Tratar exceção caso alguma linha não seja numérica.
+
+10. Crie uma função leia_numero(tipo) que:
+● Receba "int" ou "float".
+● Leia o valor do usuário.
+● Use tratamento de exceções adequado.
+● Utilize obrigatoriamente try, except, else e finally.
+
+● Continue pedindo até que o valor seja válido.
+
+11. Crie uma função que calcule o fatorial.
+12. Crie uma função que conte quantas letras existem em uma palavra.
+13. O que uma função em Python permite fazer?
+A) Repetir código várias vezes sem organização
+B) Reutilizar um bloco de código que executa uma tarefa específica
+C) Apenas armazenar dados
+D) Substituir variáveis
+14. Qual palavra-chave é usada para retornar um valor de uma função?
+A) break
+B) return
+C) pass
+D) stop
+15. O que acontece se uma função não tiver return?
+A) O programa gera erro
+B) A função retorna None
+C) A função retorna 0
+D) A função retorna False
+16.Qual exceção ocorre ao tentar dividir por zero?
+A) ValueError
+B) IndexError
+C) ZeroDivisionError
+D) TypeError
+17. Para que serve o bloco else em tratamento de exceções?
+A) Executar código quando ocorre erro
+B) Executar código quando não ocorre erro
+C) Finalizar o programa
+D) Repetir o código
+
+18. Para que serve o bloco finally?
+A) Executar código apenas quando há erro
+B) Executar código sempre, ocorrendo erro ou não
+C) Ignorar erros
+D) Finalizar funções
