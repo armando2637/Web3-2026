@@ -1,63 +1,127 @@
-1. Crie uma função chamada soma_lista(lista) que receba uma lista de números e
-retorne a soma de todos os elementos.
-2. Crie uma função chamada maior_valor(lista) que receba uma lista de números e
-retorne o maior valor presente nela.
-3. Faça um programa que:
-● receba vários números digitados pelo usuário
-● armazene em uma lista
-● crie uma função media(lista) que calcule e retorne a média.
+# 1. Soma dos elementos de uma lista
+def soma_lista(lista):
+    return sum(lista)
 
-4. Crie uma função numeros_pares(lista) que receba uma lista de números e retorne
-uma nova lista apenas com os números pares.
-5. Crie uma função contar_elementos(lista) que mostre:
-● quantidade total de elementos
-● maior valor
-● menor valor
+lista1 = [1, 2, 3, 4, 5]
+print(f'Soma da lista: {soma_lista(lista1)}')
 
-6. Crie um dicionário com as seguintes informações de um aluno:
-nome
-idade
-curso
-nota_final
-Depois mostre todos os dados do aluno na tela.
 
-7. Crie um programa que cadastre 3 alunos usando:
-● lista
-● dicionário
+# 2. Maior valor da lista
+def maior_valor(lista):
+    return max(lista)
 
-Cada aluno deve ter:
-nome
-nota
-Ao final mostre todos os alunos cadastrados.
-8. Usando o exercício anterior, crie uma função que receba a lista de alunos e
-calcule a média das notas da turma.
+print(f'Maior valor da lista: {maior_valor(lista1)}')
 
-9. Crie um dicionário para armazenar produtos e preços.
-Exemplo:
-{
-"arroz": 25,
-"feijão": 10,
-"macarrão": 8
+
+# 3. Programa com média
+def media(lista):
+    return sum(lista) / len(lista)
+
+numeros = []
+qtd = int(input("Quantos números deseja digitar? "))
+
+for i in range(qtd):
+    num = float(input(f'Digite o {i+1}º número: '))
+    numeros.append(num)
+
+print(f'Média dos números: {media(numeros):.2f}')
+
+
+# 4. Números pares
+def numeros_pares(lista):
+    return [num for num in lista if num % 2 == 0]
+
+print(f'Números pares: {numeros_pares(lista1)}')
+
+
+# 5. Contar elementos
+def contar_elementos(lista):
+    print(f'Quantidade de elementos: {len(lista)}')
+    print(f'Maior valor: {max(lista)}')
+    print(f'Menor valor: {min(lista)}')
+
+contar_elementos(lista1)
+
+
+# 6. Dicionário de aluno
+aluno = {
+    "nome": "Armando",
+    "idade": 20,
+    "curso": "Programação",
+    "nota_final": 8.5
 }
-Crie uma função que:
-● receba o dicionário
-● mostre o produto mais caro.
 
-10. Crie um programa com uma função mostrar_estoque(produtos).
-O dicionário deve ter:
-produto : quantidade
-Exemplo:
-{
-"caneta": 10,
-"caderno": 5,
-"borracha": 7
+print(f'Nome: {aluno["nome"]}')
+print(f'Idade: {aluno["idade"]}')
+print(f'Curso: {aluno["curso"]}')
+print(f'Nota final: {aluno["nota_final"]}')
 
+
+# 7. Cadastro de 3 alunos
+alunos = []
+
+for i in range(3):
+    nome = input(f'Digite o nome do {i+1}º aluno: ')
+    nota = float(input(f'Digite a nota do {i+1}º aluno: '))
+    
+    aluno = {
+        "nome": nome,
+        "nota": nota
+    }
+    
+    alunos.append(aluno)
+
+print(f'Alunos cadastrados:')
+for a in alunos:
+    print(f'Nome: {a["nome"]} - Nota: {a["nota"]}')
+
+
+# 8. Média da turma
+def media_turma(lista_alunos):
+    soma = sum(a["nota"] for a in lista_alunos)
+    return soma / len(lista_alunos)
+
+print(f'Média da turma: {media_turma(alunos):.2f}')
+
+
+# 9. Produto mais caro
+def produto_mais_caro(produtos):
+    mais_caro = max(produtos, key=produtos.get)
+    print(f'Produto mais caro: {mais_caro} - Preço: {produtos[mais_caro]}')
+
+produtos = {
+    "arroz": 25,
+    "feijão": 10,
+    "macarrão": 8
 }
-A função deve mostrar:
-Produto: caneta - Quantidade: 10
-Produto: caderno - Quantidade: 5
-Produto: borracha - Quantidade: 7
-11. Crie uma função maior_numero(*args) que receba vários números e retorne o
-maior deles.
-12. Crie uma função mostrar_dados(**kwargs) que mostre todos os valores
-recebidos.
+
+produto_mais_caro(produtos)
+
+
+# 10. Mostrar estoque
+def mostrar_estoque(produtos):
+    for produto, quantidade in produtos.items():
+        print(f'Produto: {produto} - Quantidade: {quantidade}')
+
+estoque = {
+    "caneta": 10,
+    "caderno": 5,
+    "borracha": 7
+}
+
+mostrar_estoque(estoque)
+
+
+# 11. Maior número com *args
+def maior_numero(*args):
+    return max(args)
+
+print(f'Maior número: {maior_numero(10, 20, 5, 8)}')
+
+
+# 12. Mostrar dados com **kwargs
+def mostrar_dados(**kwargs):
+    for chave, valor in kwargs.items():
+        print(f'{chave}: {valor}')
+
+mostrar_dados(nome="Armando", idade=20, curso="Programação")
